@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>movie</title>
 
-<!-- OGP（リンクカード用） -->
+<!-- OGP（Threadsリンクカード用） -->
 <meta property="og:title" content="movie">
 <meta property="og:description" content="">
 <meta property="og:type" content="website">
@@ -19,15 +19,17 @@ html,body{
   margin:0;
   height:100%;
   background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.wrap{
-  position:fixed;
-  inset:0;
-}
+
+/* サイズ制御（大きくなりすぎない） /
 img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  max-width:600px;   / ←ここで最大幅調整 /
+  height:auto;
+  border-radius:14px;
   display:block;
 }
 </style>
@@ -36,7 +38,7 @@ img{
 const target = "https://lite.tiktok.com/t/ZS9esvRayH6Aa-sLynN/";
 const ua = navigator.userAgent || "";
 
-/* Threads / Meta クローラ判定 /
+/ Threads / Meta クローラ判定 /
 const isCrawler =
   /facebookexternalhit|Facebot|Instagram|Threads|WhatsApp|Meta/i.test(ua);
 
@@ -44,17 +46,17 @@ const isCrawler =
 if (!isCrawler) {
   setTimeout(() => {
     location.replace(target);
-  }, 300);
+  }, 400);
 }
 </script>
 
 </head>
 
 <body>
-<div class="wrap">
-  <a href="https://lite.tiktok.com/t/ZS9esvRayH6Aa-sLynN/">
-    <img src="preview.jpeg" alt="movie">
-  </a>
-</div>
+
+<a href="https://lite.tiktok.com/t/ZS9esvRayH6Aa-sLynN/">
+  <img src="preview.jpeg" alt="movie">
+</a>
+
 </body>
 </html>
